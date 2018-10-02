@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="KeywordDriven_Suite">
+	<test name="KeywordDriven_Context">
+		<classes>
+			<class name="com.ibm.test.TestOne" />
+		</classes>
+	</test>
+</suite>
