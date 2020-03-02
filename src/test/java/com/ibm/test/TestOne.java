@@ -8,6 +8,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.ITestContext;
 import org.testng.annotations.DataProvider;
@@ -17,6 +18,8 @@ import com.ibm.core.DriverScript;
 
 public class TestOne {
 	
+	private static final Logger logger = Logger.getLogger(TestOne.class);
+	
 	@Test( dataProvider="testCaseData")
 	public void test(List<Map<String,String>> testCaseData){
 		System.out.println(testCaseData);
@@ -25,7 +28,7 @@ public class TestOne {
 			test.start(testCaseData);
 			Assert.assertEquals(test.testStatus.equalsIgnoreCase("PASS"), true);
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error(e);
 		} finally {
 			if (null != test) {
 				test = null;
